@@ -25,23 +25,24 @@ export default {
   name: 'FormularioTarefa',
   data() {
     return {
-      tempoEmSegundos: 0
+      tempoEmSegundos: 0,
+      cronometro: 0
     }
   },
   computed: {
-    tempoDecorrido () {
-      return new Date(this.tempoEmSegundos*1000).toISOString().substring(19,11);
+    tempoDecorrido() {
+      return new Date(this.tempoEmSegundos * 1000).toISOString().substring(19, 11);
     }
   },
   methods: {
     iniciar() {
-      setInterval(() => {
+      this.cronometro = setInterval(() => {
         this.tempoEmSegundos++
       }, 1000)
     },
 
     finalizar() {
-
+      clearInterval(this.cronometro);
     }
   }
 }
