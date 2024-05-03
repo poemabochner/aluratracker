@@ -15,7 +15,7 @@ export default {
 <style scoped>
 header {
   padding: 1rem;
-  background: #ff5bb5;
+  background: #ff5bb575;
   width: 100%;
   height: 100vh;
 }
