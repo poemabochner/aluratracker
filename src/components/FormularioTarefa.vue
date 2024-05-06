@@ -6,9 +6,7 @@
       </div>
       <div class="column">
         <div class="is-flex is-align-items-center is-justify-content-space-between">
-          <section>
-            <strong class="has-text-black">{{ tempoDecorrido }}</strong>
-          </section>
+          <cronometro-component :tempoEmSegundos="tempoEmSegundos"></cronometro-component>
           <button class="button" @click="iniciar()">
             <span>play</span>
           </button>
@@ -21,17 +19,15 @@
   </div>
 </template>
 <script>
+import CronometroComponent from './CronometroComponent.vue';
+
 export default {
+  components: { CronometroComponent },
   name: 'FormularioTarefa',
   data() {
     return {
       tempoEmSegundos: 0,
       cronometro: 0
-    }
-  },
-  computed: {
-    tempoDecorrido() {
-      return new Date(this.tempoEmSegundos * 1000).toISOString().substring(19, 11);
     }
   },
   methods: {
