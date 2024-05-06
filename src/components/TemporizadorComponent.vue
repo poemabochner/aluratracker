@@ -1,20 +1,18 @@
 <template>
-  <div class="is-flex is-align-items-center is-justify-content-space-between">
-    <cronometro-component :tempoEmSegundos="tempoEmSegundos"></cronometro-component>
-    <button class="button" @click="iniciar()" :disabled="cronometroRodando">
-      <span>play</span>
-    </button>
-    <button class="button" @click="finalizar" :disabled="!cronometroRodando">
-      <span>stop</span>
-    </button>
-  </div>
+  <section class="is-flex is-align-items-center is-justify-content-space-between">
+    <CronometroComponent :tempoEmSegundos="tempoEmSegundos"/>
+    <botao-component @clicado="iniciar" texto="play" :desabilitado="cronometroRodando" />
+    <botao-component @clicado="finalizar" texto="stop" :desabilitado="!cronometroRodando" />
+  </section>
 </template>
 
+
 <script>
+import BotaoComponent from './BotaoComponent.vue';
 import CronometroComponent from './CronometroComponent.vue';
 
 export default {
-  components: { CronometroComponent },
+  components: { CronometroComponent, BotaoComponent},
   name: 'TemporizadorComponent',
   emits: ['aoTemporizadorFinalizado'],
   data() {
