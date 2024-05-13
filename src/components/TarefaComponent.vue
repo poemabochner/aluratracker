@@ -1,21 +1,22 @@
 <template>
-  <div class="box has-text-weight-bold has-background-info-light p-3 m-3">
+  <box-component>
     <div class="columns">
       <div class="column is-7 has-text-black">
-        {{ tarefa.descricao }}
+        {{ tarefa.descricao || 'tarefa sem descriçao' }}
       </div>
       <div class="column">
         <cronometro-component :tempoEmSegundos="tarefa.duracaoEmSegundos"></cronometro-component>
       </div>
     </div>
-  </div>
+  </box-component>
 </template>
 
 <script>
+import BoxComponent from './BoxComponent.vue';
 import CronometroComponent from './CronometroComponent.vue';
 
 export default {
-  components: { CronometroComponent },
+  components: { CronometroComponent, BoxComponent },
   name: 'TarefaComponent',
   props: {
     tarefa: {
@@ -26,5 +27,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
