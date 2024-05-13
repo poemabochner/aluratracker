@@ -4,9 +4,9 @@
       <BarraLateral/>
     </div>
     <div class="column is-three-quarter">
-      <FormularioTarefa/>
+      <FormularioTarefa @aoSalvar="adicionarTarefa"/>
       <div class="lista">
-        <TarefaComponent></TarefaComponent>
+        <TarefaComponent v-for="(tarefa, index) in tarefas" :key="index" :tarefa="tarefa"></TarefaComponent>
       </div>
     </div>
   </main>
@@ -23,9 +23,24 @@ export default {
     BarraLateral,
     FormularioTarefa,
     TarefaComponent,
+  },
+  data() {
+    return {
+      tarefas: []
+    };
+  },
+  methods: {
+    adicionarTarefa(tarefa) {
+      if (Array.isArray(this.tarefas)) {
+        this.tarefas.push(tarefa);
+      } else {
+        this.tarefas = [tarefa];
+      }
+    }
   }
 }
 </script>
+
 
 <style>
 .main {
