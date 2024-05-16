@@ -1,5 +1,5 @@
 <template>
-  <div class="box has-background-white">
+  <div class="box formulario">
     <div class="columns">
       <div class="column is-8" role="form" aria-label="formulário para a criaçao de uma nova tarefa">
         <input type="text" class="text" placeholder="tarefa" v-model="descricao">
@@ -34,3 +34,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+.formulario {
+  color: var(--texto-primario);
+  background-color: var(--bg-primario);
+}
+</style>
