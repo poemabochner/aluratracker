@@ -1,15 +1,23 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Tarefas from '../views/Tarefas.vue';
+import Tarefas from "../views/Tarefas.vue";
+import Projetos from "../views/Projetos.vue";
 
-const rotas = [{
-  path: '/',
-  name: 'Tarefas',
-  component: Tarefas
-}];
+const rotas = [
+  {
+    path: "/",
+    name: "Tarefas",
+    component: Tarefas,
+  },
+  {
+    path: "/projetos",
+    name: "Projetos",
+    component: Projetos,
+  },
+];
 
 const roteador = createRouter({
   history: createWebHashHistory(),
-  routes: rotas
+  routes: rotas,
 });
 
 export default roteador;
